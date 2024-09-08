@@ -1,0 +1,45 @@
+name: myapp
+description: IMDB app
+
+publish_to: "none"
+
+version: 1.0.1+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.0.0  # For making HTTP requests
+  hive: ^2.0.0  # For caching
+  hive_flutter: ^1.1.0  # Flutter adapter for Hive
+  get_it: ^7.2.0  # Service locator
+  freezed_annotation: ^2.1.0  # Freezed for immutable models
+  flutter_bloc: ^8.0.0  # State management (Bloc/Cubit)
+  auto_route: ^9.2.2  # Routing library
+  json_annotation: ^4.9.0  # For JSON serialization/deserialization
+  flutter_gen: ^5.0.0
+dev_dependencies:
+  build_runner: ^2.3.0  # For generating code (Freezed, AutoRoute)
+  freezed: ^2.1.0  # Code generation for Freezed
+  auto_route_generator: ^9.0.0  # Code generation for AutoRoute
+  json_serializable: ^6.8.0
+  envied_generator: ^0.5.4+1
+  flutter_lints: ^4.0.0
+  hive_generator: any
+  flutter_gen_runner:
+  flutter_gen: ^5.0.0
+  flutter_native_splash: ^2.2.16
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^1.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/splash.png
+    - assets/logo.png
+    - assets/icons/movie_icon.svg
+    - assets/icons/favorite_icon.svg
+    - assets/icons/unchecked_icon.svg
