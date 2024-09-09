@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/presentation/bloc/movie_cubit.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:myapp/domain/movies/entities/movie_bo.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/router.dart';
+import '../../movies/blocs/movie_cubit.dart';
 import '../../setup_locator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -155,13 +155,16 @@ class _MovieItemState extends State<MovieItem> {
                               padding: const EdgeInsets.only(right: 16.0),
                               child: InkWell(
                                 child:
-
-                                SvgPicture.asset(
-                                  'assets/icons/favorite_icon.svg',
-                                  color:
-                                       const Color(0xFFFFA726),
-                                  height: 24,
-                                  width: 18,
+                                Container(
+                                  padding: EdgeInsets.all(20), // Adjust
+                                  // padding to limit the clickable area
+                                  child: SvgPicture.asset(
+                                    'assets/icons/favorite_icon.svg',
+                                    color:
+                                         const Color(0xFFFFA726),
+                                    height: 24,
+                                    width: 18,
+                                  ),
                                 ),
                                 onTap: () {
                                   // Call toggle function on Cubit/Bloc
@@ -175,11 +178,15 @@ class _MovieItemState extends State<MovieItem> {
                         padding: const EdgeInsets.only(right: 16.0),
                         child: InkWell(
                           child:
-                           SvgPicture.asset(
-                            'assets/icons/unchecked_icon.svg',
-                            height: 18,
-                            width: 12,
-                          ),
+                           Container(
+                             padding: EdgeInsets.all(20), // Adjust padding
+                             // to limit the clickable area
+                             child: SvgPicture.asset(
+                              'assets/icons/unchecked_icon.svg',
+                              height: 18,
+                              width: 12,
+                                                       ),
+                           ),
                           onTap: () {
                             // Call toggle function on Cubit/Bloc
                             context.read<MovieCubit>().toggleFavoriteMovie
@@ -190,7 +197,6 @@ class _MovieItemState extends State<MovieItem> {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 8),
                   Row(
                     children: [
