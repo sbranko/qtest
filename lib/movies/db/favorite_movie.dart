@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import 'movie_bo.dart';
+import '../../../movies/business_objects/movie_bo.dart';
 
 part 'favorite_movie.g.dart'; // This is needed for code generation
 
