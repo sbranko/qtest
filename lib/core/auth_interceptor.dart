@@ -15,11 +15,10 @@ class AuthInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     // You can handle token expiration or other errors here
     if (err.response?.statusCode == 401) {
       // Handle token expiration, unauthorized access, or refresh token logic here
-      print('Token expired or unauthorized access.');
     }
 
     // Continue with the error

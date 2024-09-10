@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'favorite_movie.dart';
+part of '../../../movies/db/favorite_movie.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

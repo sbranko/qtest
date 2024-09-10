@@ -1,4 +1,4 @@
-import 'package:myapp/data/models/movie_details_dto.dart';
+import 'package:myapp/movies/dto/movie_details_dto.dart';
 
 class MovieDetailsBO {
   final int id;
@@ -14,6 +14,7 @@ class MovieDetailsBO {
   final int runtime;
   final String status;
   final String homepage;
+  bool isFavorite;
 
   MovieDetailsBO({
     required this.id,
@@ -29,6 +30,7 @@ class MovieDetailsBO {
     required this.runtime,
     required this.status,
     required this.homepage,
+    this.isFavorite = false,
   });
 
   // Utility method to create MovieDetailsBO from MovieDetails DTO
@@ -39,9 +41,9 @@ class MovieDetailsBO {
       overview: dto.overview,
       posterUrl: 'https://image.tmdb.org/t/p/w500${dto.posterPath}',
       backdropUrl: 'https://image.tmdb.org/t/p/w500${dto.backdropPath}',
-      releaseDate: dto.releaseDate ?? '',
-      voteAverage: dto.voteAverage ?? 0.0,
-      voteCount: dto.voteCount ?? 0,
+      releaseDate: dto.releaseDate,
+      voteAverage: dto.voteAverage,
+      voteCount: dto.voteCount,
       genres: dto.genres!.map((genre) => genre.name).toList(),
       tagline: dto.tagline,
       runtime: dto.runtime,

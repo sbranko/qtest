@@ -18,8 +18,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/movie_icon.svg
   String get movieIcon => 'assets/icons/movie_icon.svg';
 
+  /// File path: assets/icons/unchecked_icon.svg
+  String get uncheckedIcon => 'assets/icons/unchecked_icon.svg';
+
   /// List of all assets
-  List<String> get values => [favoriteIcon, movieIcon];
+  List<String> get values => [favoriteIcon, movieIcon, uncheckedIcon];
 }
 
 class Assets {

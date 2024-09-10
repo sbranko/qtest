@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/domain/movies/entities/favorite_movie.dart';
+import 'package:myapp/movies/db/favorite_movie.dart';
 
 
-import '../../domain/movies/entities/movie_bo.dart';
-import '../../domain/movies/repository/favorite_movie_repository.dart';
+import '../business_objects/movie_bo.dart';
+import '../repositories/favorite_movie_repository.dart';
 part 'favorite_movie_cubit.freezed.dart';
 
 @freezed
@@ -26,13 +26,7 @@ class FavoriteMovieCubit extends Cubit<FavoriteMovieState> {
   // Method to fetch the list of favorite movies
   void fetchFavoriteMovies() {
     final favoriteMovies = _favoriteMovieRepository.getFavoriteMovies();  // Get favorite movies from the repository
-    favoriteMovies.forEach((name) {
 
-      // Each 'name' represents the current 'element'.
-
-      print('Hello, ${name.originalTitle}');
-
-    });
     // Convert each MovieDTO to MovieBO using the toBO() method
     final favoriteMoviesBO = favoriteMovies.map((movieDTO) => movieDTO.toBO()).toList();
 
@@ -40,7 +34,7 @@ class FavoriteMovieCubit extends Cubit<FavoriteMovieState> {
     // of favorite movies
   }
   // Toggle favorite status for a movie
-  bool toggleFavoriteMovie(MovieBO movie, int page) {
+  bool toggleFavoriteMovie(MovieBO movie) {
     if (movie.isFavorite) {
       _favoriteMovieRepository.removeFavoriteMovie(movie.id);
     } else {
@@ -60,17 +54,17 @@ class FavoriteMovieCubit extends Cubit<FavoriteMovieState> {
     }
 
     // Update the local state in the Cubit
-    movie.isFavorite = !movie.isFavorite;
+    // movie.isFavorite = !movie.isFavorite;
     final updatedMovies = (state as Loaded).favoriteMovies.map((m) {
-
       return m.id == movie.id ? movie : m;
     }).toList();
     print('stanje cubit ${movie.isFavorite}');
-    // emit (FavoriteMovieState.loaded(updatedMovies)); // Emit new state
-    return  movie.isFavorite;
+    updatedMovie(movie);
+    emit (FavoriteMovieState.loaded(updatedMovies)); // Emit new state
+    return movie.isFavorite;
   }
 
   MovieBO?  updatedMovie(MovieBO movie) =>
-      state.maybeMap(loaded: (s) => s.favoriteMovies.firstWhere((m) => m.id == movie.id),
-          orElse: () => null);
+      movie;
+
 }

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp/presentation/bloc/favorite_movie_cubit.dart';
-import 'package:myapp/presentation/bloc/movie_cubit.dart';
-import 'package:myapp/presentation/pages/home_page.dart';
-import 'package:myapp/presentation/pages/splash_page.dart';
+import 'package:myapp/movies/blocs/favorite_movie_cubit.dart';
+import 'package:myapp/movies/blocs/network_cubit.dart';
 import 'package:myapp/setup_hive.dart';
 import 'package:myapp/setup_locator.dart';
 import 'core/router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'domain/movies/entities/favorite_movie.dart';
+import 'movies/db/favorite_movie.dart';
+import 'movies/blocs/movie_cubit.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupHive();
@@ -32,7 +30,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
 
-  const MyApp({Key? key, required this.appRouter}) : super(key: key);
+  const MyApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,9 @@ class MyApp extends StatelessWidget {
             create: (context) => getIt<FavoriteMovieCubit>(),  // If using getIt for dependency injection
           ),
 
-
+          BlocProvider<NetworkCubit>(
+            create: (context) => getIt<NetworkCubit>()..checkInitialStatus(),  // If using getIt for dependency injection
+          ),
         ],
       child:  MaterialApp.router(
         debugShowCheckedModeBanner: false,

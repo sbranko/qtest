@@ -19,9 +19,16 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    // Automatically navigate after 3 seconds
-    Future.delayed(Duration(seconds: 3), () {
-      context.router.replace(const HomeRoute());
+
+    // Delays the call to after the widget has been built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Delay the navigation action by 3 seconds
+      Future.delayed(const Duration(seconds: 3), () {
+        // Check if the widget is still mounted before using the context
+        if (mounted) {
+          context.router.replace(const HomeRoute());
+        }
+      });
     });
   }
 

@@ -1,8 +1,9 @@
 import 'package:hive/hive.dart';
 
-import '../../../movies/business_objects/movie_bo.dart';
+import '../business_objects/movie_bo.dart';
 
-part 'favorite_movie.g.dart'; // This is needed for code generation
+part '../../../movies/db/favorite_movie.g.dart'; // This is needed for code
+// generation
 
 @HiveType(typeId: 0) // Define a unique typeId for Hive
 class FavoriteMovie extends HiveObject {
@@ -50,14 +51,14 @@ class FavoriteMovie extends HiveObject {
   });
   MovieBO toBO() {
     return MovieBO(
-      id: this.id,
-      title: this.title,
-      posterUrl: this.posterUrl,
-      voteAverage: this.voteAverage,
-      genres: this.genres,
-      overview: this.overview,
-      isFavorite: this.isFavorite, originalTitle: this.originalTitle,
-      backdropUrl: this.backdropUrl, releaseDate: this.releaseDate,
+      id: id,
+      title: title,
+      posterUrl: posterUrl,
+      voteAverage: voteAverage,
+      genres: genres,
+      overview: overview,
+      isFavorite: isFavorite, originalTitle: originalTitle,
+      backdropUrl: backdropUrl, releaseDate: releaseDate,
     );
   }
 }

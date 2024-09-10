@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:myapp/presentation/pages/splash_page.dart';
-import 'package:myapp/presentation/pages/home_page.dart';
-import 'package:myapp/presentation/pages/movie_details_page.dart';
-import 'package:myapp/presentation/pages/popular_movies_page.dart';
-import 'package:myapp/presentation/pages/favorites_page.dart';
-import 'package:myapp/domain/movies/entities/movie_bo.dart';
+import 'package:myapp/movies/ui/splash_page.dart';
+import 'package:myapp/movies/ui/home_page.dart';
+import 'package:myapp/movies/ui/movie_details_page.dart';
+import 'package:myapp/movies/ui/popular_movies_page.dart';
+import 'package:myapp/movies/ui/favorites_page.dart';
 
-import '../data/models/movie_dto.dart';
 part 'router.gr.dart';
 
 @AutoRouterConfig(

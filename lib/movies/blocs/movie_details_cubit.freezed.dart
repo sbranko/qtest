@@ -43,26 +43,26 @@ mixin _$MovieDetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(InitialDetails value) initial,
+    required TResult Function(LoadingDetails value) loading,
+    required TResult Function(LoadedDetails value) loaded,
+    required TResult Function(ErrorDetails value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(InitialDetails value)? initial,
+    TResult? Function(LoadingDetails value)? loading,
+    TResult? Function(LoadedDetails value)? loaded,
+    TResult? Function(ErrorDetails value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(InitialDetails value)? initial,
+    TResult Function(LoadingDetails value)? loading,
+    TResult Function(LoadedDetails value)? loaded,
+    TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,18 +90,18 @@ class _$MovieDetailsStateCopyWithImpl<$Res, $Val extends MovieDetailsState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$InitialDetailsImplCopyWith<$Res> {
+  factory _$$InitialDetailsImplCopyWith(_$InitialDetailsImpl value,
+          $Res Function(_$InitialDetailsImpl) then) =
+      __$$InitialDetailsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$MovieDetailsStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$InitialDetailsImplCopyWithImpl<$Res>
+    extends _$MovieDetailsStateCopyWithImpl<$Res, _$InitialDetailsImpl>
+    implements _$$InitialDetailsImplCopyWith<$Res> {
+  __$$InitialDetailsImplCopyWithImpl(
+      _$InitialDetailsImpl _value, $Res Function(_$InitialDetailsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MovieDetailsState
@@ -110,8 +110,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+class _$InitialDetailsImpl implements InitialDetails {
+  const _$InitialDetailsImpl();
 
   @override
   String toString() {
@@ -121,7 +121,7 @@ class _$InitialImpl implements Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$InitialDetailsImpl);
   }
 
   @override
@@ -167,10 +167,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(InitialDetails value) initial,
+    required TResult Function(LoadingDetails value) loading,
+    required TResult Function(LoadedDetails value) loaded,
+    required TResult Function(ErrorDetails value) error,
   }) {
     return initial(this);
   }
@@ -178,10 +178,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(InitialDetails value)? initial,
+    TResult? Function(LoadingDetails value)? loading,
+    TResult? Function(LoadedDetails value)? loaded,
+    TResult? Function(ErrorDetails value)? error,
   }) {
     return initial?.call(this);
   }
@@ -189,10 +189,10 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(InitialDetails value)? initial,
+    TResult Function(LoadingDetails value)? loading,
+    TResult Function(LoadedDetails value)? loaded,
+    TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -202,23 +202,23 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements MovieDetailsState {
-  const factory Initial() = _$InitialImpl;
+abstract class InitialDetails implements MovieDetailsState {
+  const factory InitialDetails() = _$InitialDetailsImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$LoadingDetailsImplCopyWith<$Res> {
+  factory _$$LoadingDetailsImplCopyWith(_$LoadingDetailsImpl value,
+          $Res Function(_$LoadingDetailsImpl) then) =
+      __$$LoadingDetailsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$MovieDetailsStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$LoadingDetailsImplCopyWithImpl<$Res>
+    extends _$MovieDetailsStateCopyWithImpl<$Res, _$LoadingDetailsImpl>
+    implements _$$LoadingDetailsImplCopyWith<$Res> {
+  __$$LoadingDetailsImplCopyWithImpl(
+      _$LoadingDetailsImpl _value, $Res Function(_$LoadingDetailsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MovieDetailsState
@@ -227,8 +227,8 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements Loading {
-  const _$LoadingImpl();
+class _$LoadingDetailsImpl implements LoadingDetails {
+  const _$LoadingDetailsImpl();
 
   @override
   String toString() {
@@ -238,7 +238,7 @@ class _$LoadingImpl implements Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingDetailsImpl);
   }
 
   @override
@@ -284,10 +284,10 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(InitialDetails value) initial,
+    required TResult Function(LoadingDetails value) loading,
+    required TResult Function(LoadedDetails value) loaded,
+    required TResult Function(ErrorDetails value) error,
   }) {
     return loading(this);
   }
@@ -295,10 +295,10 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(InitialDetails value)? initial,
+    TResult? Function(LoadingDetails value)? loading,
+    TResult? Function(LoadedDetails value)? loaded,
+    TResult? Function(ErrorDetails value)? error,
   }) {
     return loading?.call(this);
   }
@@ -306,10 +306,10 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(InitialDetails value)? initial,
+    TResult Function(LoadingDetails value)? loading,
+    TResult Function(LoadedDetails value)? loaded,
+    TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -319,25 +319,25 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements MovieDetailsState {
-  const factory Loading() = _$LoadingImpl;
+abstract class LoadingDetails implements MovieDetailsState {
+  const factory LoadingDetails() = _$LoadingDetailsImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+abstract class _$$LoadedDetailsImplCopyWith<$Res> {
+  factory _$$LoadedDetailsImplCopyWith(
+          _$LoadedDetailsImpl value, $Res Function(_$LoadedDetailsImpl) then) =
+      __$$LoadedDetailsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MovieDetailsBO movieDetails});
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$MovieDetailsStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$LoadedDetailsImplCopyWithImpl<$Res>
+    extends _$MovieDetailsStateCopyWithImpl<$Res, _$LoadedDetailsImpl>
+    implements _$$LoadedDetailsImplCopyWith<$Res> {
+  __$$LoadedDetailsImplCopyWithImpl(
+      _$LoadedDetailsImpl _value, $Res Function(_$LoadedDetailsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MovieDetailsState
@@ -347,7 +347,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
   $Res call({
     Object? movieDetails = null,
   }) {
-    return _then(_$LoadedImpl(
+    return _then(_$LoadedDetailsImpl(
       null == movieDetails
           ? _value.movieDetails
           : movieDetails // ignore: cast_nullable_to_non_nullable
@@ -358,8 +358,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(this.movieDetails);
+class _$LoadedDetailsImpl implements LoadedDetails {
+  const _$LoadedDetailsImpl(this.movieDetails);
 
   @override
   final MovieDetailsBO movieDetails;
@@ -373,7 +373,7 @@ class _$LoadedImpl implements Loaded {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
+            other is _$LoadedDetailsImpl &&
             (identical(other.movieDetails, movieDetails) ||
                 other.movieDetails == movieDetails));
   }
@@ -386,8 +386,8 @@ class _$LoadedImpl implements Loaded {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+  _$$LoadedDetailsImplCopyWith<_$LoadedDetailsImpl> get copyWith =>
+      __$$LoadedDetailsImplCopyWithImpl<_$LoadedDetailsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -429,10 +429,10 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(InitialDetails value) initial,
+    required TResult Function(LoadingDetails value) loading,
+    required TResult Function(LoadedDetails value) loaded,
+    required TResult Function(ErrorDetails value) error,
   }) {
     return loaded(this);
   }
@@ -440,10 +440,10 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(InitialDetails value)? initial,
+    TResult? Function(LoadingDetails value)? loading,
+    TResult? Function(LoadedDetails value)? loaded,
+    TResult? Function(ErrorDetails value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -451,10 +451,10 @@ class _$LoadedImpl implements Loaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(InitialDetails value)? initial,
+    TResult Function(LoadingDetails value)? loading,
+    TResult Function(LoadedDetails value)? loaded,
+    TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -464,33 +464,34 @@ class _$LoadedImpl implements Loaded {
   }
 }
 
-abstract class Loaded implements MovieDetailsState {
-  const factory Loaded(final MovieDetailsBO movieDetails) = _$LoadedImpl;
+abstract class LoadedDetails implements MovieDetailsState {
+  const factory LoadedDetails(final MovieDetailsBO movieDetails) =
+      _$LoadedDetailsImpl;
 
   MovieDetailsBO get movieDetails;
 
   /// Create a copy of MovieDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+  _$$LoadedDetailsImplCopyWith<_$LoadedDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorDetailsImplCopyWith<$Res> {
+  factory _$$ErrorDetailsImplCopyWith(
+          _$ErrorDetailsImpl value, $Res Function(_$ErrorDetailsImpl) then) =
+      __$$ErrorDetailsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$MovieDetailsStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$ErrorDetailsImplCopyWithImpl<$Res>
+    extends _$MovieDetailsStateCopyWithImpl<$Res, _$ErrorDetailsImpl>
+    implements _$$ErrorDetailsImplCopyWith<$Res> {
+  __$$ErrorDetailsImplCopyWithImpl(
+      _$ErrorDetailsImpl _value, $Res Function(_$ErrorDetailsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MovieDetailsState
@@ -500,7 +501,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ErrorImpl(
+    return _then(_$ErrorDetailsImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -511,8 +512,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl(this.message);
+class _$ErrorDetailsImpl implements ErrorDetails {
+  const _$ErrorDetailsImpl(this.message);
 
   @override
   final String message;
@@ -526,7 +527,7 @@ class _$ErrorImpl implements Error {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ErrorImpl &&
+            other is _$ErrorDetailsImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -538,8 +539,8 @@ class _$ErrorImpl implements Error {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
-      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
+  _$$ErrorDetailsImplCopyWith<_$ErrorDetailsImpl> get copyWith =>
+      __$$ErrorDetailsImplCopyWithImpl<_$ErrorDetailsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -581,10 +582,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(InitialDetails value) initial,
+    required TResult Function(LoadingDetails value) loading,
+    required TResult Function(LoadedDetails value) loaded,
+    required TResult Function(ErrorDetails value) error,
   }) {
     return error(this);
   }
@@ -592,10 +593,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(InitialDetails value)? initial,
+    TResult? Function(LoadingDetails value)? loading,
+    TResult? Function(LoadedDetails value)? loaded,
+    TResult? Function(ErrorDetails value)? error,
   }) {
     return error?.call(this);
   }
@@ -603,10 +604,10 @@ class _$ErrorImpl implements Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(InitialDetails value)? initial,
+    TResult Function(LoadingDetails value)? loading,
+    TResult Function(LoadedDetails value)? loaded,
+    TResult Function(ErrorDetails value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -616,14 +617,14 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements MovieDetailsState {
-  const factory Error(final String message) = _$ErrorImpl;
+abstract class ErrorDetails implements MovieDetailsState {
+  const factory ErrorDetails(final String message) = _$ErrorDetailsImpl;
 
   String get message;
 
   /// Create a copy of MovieDetailsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+  _$$ErrorDetailsImplCopyWith<_$ErrorDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

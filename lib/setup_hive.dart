@@ -1,6 +1,5 @@
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp/data/models/movie_dto.dart';
+import 'movies/dto/movie_dto.dart';
 
 Future<void> setupHive() async {
   await Hive.initFlutter();

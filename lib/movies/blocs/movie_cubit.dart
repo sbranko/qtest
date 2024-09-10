@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:myapp/domain/movies/entities/movie_bo.dart';
-import '../../domain/movies/entities/favorite_movie.dart';
-import '../../domain/movies/repository/favorite_movie_repository.dart';
-import '../../domain/movies/repository/movie_repository.dart';
+import 'package:myapp/movies/business_objects/movie_bo.dart';
+import '../db/favorite_movie.dart';
+import '../repositories/favorite_movie_repository.dart';
+import '../repositories/movie_repository.dart';
 
 part 'movie_cubit.freezed.dart';
 
@@ -22,20 +22,6 @@ class MovieCubit extends Cubit<MovieState> {
   bool isFetching = false;
 
   MovieCubit(this._repository, this._favoritesMovieRepository) : super(const MovieState.initial());
-
-  // Method to fetch the list of favorite movies
-  void fetchFavoriteMovies() {
-    final favoriteMovies = _favoritesMovieRepository.getFavoriteMovies();  // Get favorite movies from the repository
-    favoriteMovies.forEach((name) {
-
-      // Each 'name' represents the current 'element'.
-
-      print('Hello, ${name.originalTitle}');
-
-    });
-    emit(MovieState.loaded([], 1, true));  // Emit a new state with the list
-    // of favorite movies
-  }
 
   // Method to check if the movie is a favorite
   bool isMovieFavorite(int movieId) {
@@ -58,7 +44,7 @@ class MovieCubit extends Cubit<MovieState> {
       // Fetch the next page of movies
       final movies = await _repository.getPopularMovies(page: page);
       // Update the favorite status for each movie
-   movies.map((movie) {
+        movies.map((movie) {
         final isFavorite = isMovieFavorite(movie.id);  // Check if it's favorite
         movie.isFavorite = isFavorite;
         print(' primer ${movie.isFavorite}');

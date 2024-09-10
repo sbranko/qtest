@@ -1,6 +1,6 @@
-import 'package:myapp/data/models/genre_dto.dart';
+import 'package:myapp/movies/dto/genre_dto.dart';
 
-import '../../../data/models/movie_dto.dart';
+import '../dto/movie_dto.dart';
 
 class MovieBO {
   final int id;
@@ -41,7 +41,20 @@ class MovieBO {
       releaseDate: dto.releaseDate,
     );
   }
-
+  MovieBO copyWith({bool? isFavorite}) {
+    return MovieBO(
+      id: id,
+      title: title,
+      originalTitle:  originalTitle,
+      overview:  overview,
+      voteAverage:  voteAverage,
+      posterUrl:  posterUrl,
+      backdropUrl:  backdropUrl,
+      genres:  genres,
+      releaseDate:  releaseDate,
+      isFavorite: isFavorite ?? this.isFavorite,
+    );
+  }
   // Helper method to map genre IDs to names
   static String _mapGenreIdToName(int genreId, GenreListDTO genre) {
     // final genreMap = {
