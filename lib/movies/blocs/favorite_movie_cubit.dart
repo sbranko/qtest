@@ -58,7 +58,6 @@ class FavoriteMovieCubit extends Cubit<FavoriteMovieState> {
     final updatedMovies = (state as Loaded).favoriteMovies.map((m) {
       return m.id == movie.id ? movie : m;
     }).toList();
-    print('stanje cubit ${movie.isFavorite}');
     updatedMovie(movie);
     emit (FavoriteMovieState.loaded(updatedMovies)); // Emit new state
     return movie.isFavorite;

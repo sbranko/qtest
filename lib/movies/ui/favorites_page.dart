@@ -137,21 +137,14 @@ class FavoritesPage extends StatelessWidget {
 
 class FavoriteMovieItem extends StatefulWidget {
   final MovieBO movie;
-  bool isFavorite;
 
-  FavoriteMovieItem({super.key, required this.movie, this.isFavorite = false});
+  const FavoriteMovieItem({super.key, required this.movie});
 
   @override
   State<FavoriteMovieItem> createState() => _FavoriteMovieItemState();
 }
 
 class _FavoriteMovieItemState extends State<FavoriteMovieItem> {
-  void _toggleFavorite() {
-    setState(() {
-      // widget.isFavorite = !widget.isFavorite; // Toggle the
-      // favorite status
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,10 +212,7 @@ class _FavoriteMovieItemState extends State<FavoriteMovieItem> {
                               onTap: () {
                                 context.read<FavoriteMovieCubit>()
                                     .toggleFavoriteMovie(widget.movie);
-                                final pom =context.read<FavoriteMovieCubit>()
-                                    .updatedMovie(widget.movie)!.isFavorite;
 
-                                print('vrednost $pom');
                                 setState(() {
                                   widget.movie.isFavorite = !widget.movie
                                       .isFavorite;

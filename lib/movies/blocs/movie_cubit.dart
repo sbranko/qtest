@@ -99,12 +99,11 @@ class MovieCubit extends Cubit<MovieState> {
     }
 
     // Update the local state in the Cubit
-    movie.isFavorite = !movie.isFavorite;
+    // movie.isFavorite = !movie.isFavorite;
     final updatedMovies = (state as Loaded).movies.map((m) {
 
       return m.id == movie.id ? movie : m;
     }).toList();
-    print('stanje cubit ${movie.isFavorite}');
     emit (MovieState.loaded(updatedMovies, page, false)); // Emit new state
     return  movie.isFavorite;
   }
@@ -115,22 +114,4 @@ class MovieCubit extends Cubit<MovieState> {
   MovieBO?  updatedMovie(MovieBO movie) =>
       state.maybeMap(loaded: (s) => s.movies.firstWhere((m) => m.id == movie.id), orElse: () => null);
 
-  // void toggleFavoriteMovie(Movie movie) {
-  //   if (movie.isFavorite) {
-  //     _favoriteMovieRepository.removeFavoriteMovie(movie.id);
-  //   } else {
-  //     final favoriteMovie = FavoriteMovie(id: movie.id, title: movie.title, description: movie.description);
-  //     _favoriteMovieRepository.addFavoriteMovie(favoriteMovie);
-  //   }
-  //
-  //   // Update the favorite status in the current list
-  //   movie.isFavorite = !movie.isFavorite;
-  //
-  //   // Re-emit the updated movie list
-  //   final updatedMovies = state.popularMovies.map((m) {
-  //     return m.id == movie.id ? movie : m;
-  //   }).toList();
-  //
-  //   emit(PopularMoviesLoaded(updatedMovies));
-  // }
 }

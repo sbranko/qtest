@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:myapp/movies/blocs/movie_cubit.dart';
 import 'package:myapp/movies/blocs/movie_details_cubit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:myapp/setup_locator.dart';
 
 import '../blocs/favorite_movie_cubit.dart';
+import '../blocs/movie_cubit.dart';
 
 @RoutePage()
 class MovieDetailsPage extends StatefulWidget {
@@ -27,9 +27,10 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
       create: (_) => getIt<MovieDetailsCubit>()..fetchMovieDetails(widget.movieId),
       child: WillPopScope(
         onWillPop: () async {
-          // Call fetchFavoriteMovies() before going back
           context.read<FavoriteMovieCubit>().fetchFavoriteMovies();
-          return true; // Allows the back navigation to proceed
+          final routeName = ModalRoute.of(context)?.settings.name;
+          print(routeName);
+          return true;
         },
         child: Scaffold(
           backgroundColor: const Color(0xFF121212),
@@ -43,7 +44,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Backdrop image
                       Stack(
                         children: [
                           Container(
@@ -73,6 +73,8 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                               icon: const Icon(Icons.arrow_back, color: Colors.white),
                               onPressed: () {
                                 context.read<FavoriteMovieCubit>().fetchFavoriteMovies();
+                                context.read<MovieCubit>()
+                                    .fetchPopularMovies(1);
                                 Navigator.pop(context);
                               },
                             ),
@@ -121,51 +123,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                     },
                                   ),
                                 ),
-                                // isFavorite!.isFavorite ?
-                                // Padding(
-                                //   padding: const EdgeInsets.only(right: 16.0),
-                                //   child: InkWell(
-                                //     child:
-                                //     Container(
-                                //       padding: EdgeInsets.all(20), // Adjust
-                                //       // padding to limit the clickable area
-                                //       child: SvgPicture.asset(
-                                //         'assets/icons/favorite_icon.svg',
-                                //         color:
-                                //         const Color(0xFFFFA726),
-                                //         height: 24,
-                                //         width: 18,
-                                //       ),
-                                //     ),
-                                //     onTap: () {
-                                //       // Call toggle function on Cubit/Bloc
-                                //       context.read<MovieCubit>().toggleFavoriteMovie
-                                //         (widget.movie, widget.page);
-                                //       _toggleFavorite();
-                                //     },
-                                //   ),
-                                // ):
-                                // Padding(
-                                //   padding: const EdgeInsets.only(right: 16.0),
-                                //   child: InkWell(
-                                //     child:
-                                //     Container(
-                                //       padding: EdgeInsets.all(20), // Adjust padding
-                                //       // to limit the clickable area
-                                //       child: SvgPicture.asset(
-                                //         'assets/icons/unchecked_icon.svg',
-                                //         height: 18,
-                                //         width: 12,
-                                //       ),
-                                //     ),
-                                //     onTap: () {
-                                //       // Call toggle function on Cubit/Bloc
-                                //       context.read<MovieCubit>().toggleFavoriteMovie
-                                //         (movie, 0);
-                                //       _toggleFavorite();
-                                //     },
-                                //   ),
-                                // ),
                               ],
                             ),
                             const SizedBox(height: 8),
@@ -191,7 +148,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                           ],
                         ),
                       ),
-
                       // Description
                       Padding(
                         padding: const EdgeInsets.all(16.0),

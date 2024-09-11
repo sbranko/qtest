@@ -8,9 +8,6 @@ import 'package:myapp/movies/blocs/movie_cubit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-// import '../blocs/favorite_movie_cubit.dart';
-import '../blocs/network_cubit.dart';
-
 @RoutePage()
 class PopularMoviesPage extends StatefulWidget {
   const PopularMoviesPage({super.key});
@@ -122,19 +119,12 @@ class MovieItem extends StatefulWidget {
 }
 
 class _MovieItemState extends State<MovieItem> {
-  void _toggleFavorite() {
-    setState(() {
-      widget.isFavorite = !widget.isFavorite; // Toggle the favorite status
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MovieCubit, MovieState>(
       builder: (context, state) {
-        MovieBO? isFavorite =
-            context.read<MovieCubit>().updatedMovie(widget.movie);
-        print("da da ${isFavorite?.isFavorite}");
 
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
@@ -152,18 +142,11 @@ class _MovieItemState extends State<MovieItem> {
                   width: 100,
                   height: 140,
                   fit: BoxFit.cover,
-                  placeholder: (context, url) => CircularProgressIndicator(),
+                  placeholder: (context, url) => const CircularProgressIndicator(),
                   // Placeholder while loading
                   errorWidget: (context, url, error) =>
-                      Icon(Icons.error), // Displayed if there's an error
+                      const Icon(Icons.error), // Displayed if there's an error
                 ),
-
-                // Image.network(
-                //   'https://image.tmdb.org/t/p/w500/${widget.movie.posterUrl}',
-                //   width: 100,
-                //   height: 140,
-                //   fit: BoxFit.cover,
-                // ),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -187,7 +170,7 @@ class _MovieItemState extends State<MovieItem> {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          isFavorite!.isFavorite
+                          widget.movie.isFavorite
                               ? Padding(
                                   padding: const EdgeInsets.only(right: 16.0),
                                   child: InkWell(
@@ -208,7 +191,10 @@ class _MovieItemState extends State<MovieItem> {
                                           .read<MovieCubit>()
                                           .toggleFavoriteMovie(
                                               widget.movie, widget.page);
-                                      _toggleFavorite();
+                                      setState(() {
+                                        widget.movie.isFavorite = !widget.movie
+                                        .isFavorite;
+                                      });
                                     },
                                   ),
                                 )
@@ -231,7 +217,10 @@ class _MovieItemState extends State<MovieItem> {
                                           .read<MovieCubit>()
                                           .toggleFavoriteMovie(
                                               widget.movie, widget.page);
-                                      _toggleFavorite();
+                                      setState(() {
+                                        widget.movie.isFavorite = !widget.movie
+                                            .isFavorite;
+                                      });
                                     },
                                   ),
                                 ),

@@ -36,7 +36,14 @@ class _HomePageState extends State<HomePage> {
             content: Text("You are online. Showing cached movies."),
           ),
         );
-        context.read<MovieCubit>().fetchPopularMovies(1);
+
+        // Delays the call to after the widget has been built
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            context.read<MovieCubit>().fetchPopularMovies(1);
+          }
+        });
+
       }
     });
   }
